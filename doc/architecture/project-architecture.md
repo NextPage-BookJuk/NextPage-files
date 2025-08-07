@@ -1,3 +1,4 @@
+```bash
 bookjuk/
 ├── build.gradle or pom.xml         # 빌드 스크립트 (Gradle 또는 Maven)
 ├── .gitignore                      # Git 버전 관리에서 제외할 파일 목록
@@ -28,3 +29,4 @@ bookjuk/
     │       ├── application.yml     # 애플리케이션 환경설정 파일
     │       ├── static/             # 정적 리소스 (CSS, JavaScript, 이미지 등)
     │       └── templates/          # 서버 사이드 뷰 템플릿 (Thymeleaf, JSP 등)
+```
