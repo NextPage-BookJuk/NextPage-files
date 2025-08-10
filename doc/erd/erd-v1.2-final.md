@@ -1,3 +1,5 @@
+
+```sql
 -- =================================================================
 --  1. 데이터베이스 생성 및 선택 (이 부분을 추가하세요!)
 -- =================================================================
@@ -115,3 +117,4 @@ CREATE TABLE `comment` (
     FOREIGN KEY (`post_id`) REFERENCES `post`(`post_id`),
     FOREIGN KEY (`user_id`) REFERENCES `user`(`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='게시글의 댓글';
+```
