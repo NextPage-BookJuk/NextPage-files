@@ -44,7 +44,9 @@ CREATE TABLE `meeting` (
                            `book_author`      VARCHAR(100) NOT NULL COMMENT '선정 도서 저자',
                            `genre`            VARCHAR(100) NULL COMMENT '모임 장르',
                            `meeting_time`     DATETIME NOT NULL COMMENT '모임 시간',
-                           `location`         VARCHAR(255) NOT NULL COMMENT '모임 장소',
+                           `region`           VARCHAR(20)  NOT NULL COMMENT '시/도 (예: 서울, 부산)',
+                           `city`             VARCHAR(30)  NOT NULL COMMENT '시/구/군 (예: 강남구, 수성구)',
+                           `detail_address`    VARCHAR(255) NULL COMMENT '상세주소(선택)',
                            `max_participants` INT NOT NULL COMMENT '최대 참여 인원',
                            `status`           VARCHAR(20) NOT NULL DEFAULT 'RECRUITING' COMMENT '모임 상태: RECRUITING(모집중), COMPLETED(종료), CANCELLED(취소)',
                            `created_at`       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '모임 생성 시점',
@@ -61,7 +63,8 @@ CREATE TABLE `meeting_participant` (
                                        `meeting_id` BIGINT NOT NULL COMMENT '참여 모임의 id (meeting.id 참조)',
                                        `user_id`    BIGINT NOT NULL COMMENT '참여 사용자의 user_id (user.user_id 참조)',
                                        `role`       VARCHAR(20) NOT NULL COMMENT 'HOST(주최자), PARTICIPANT(참여자)',
-                                       `status`     VARCHAR(20) NOT NULL DEFAULT 'PENDING' COMMENT '참여 상태: PENDING(신청), APPROVED(승인), REJECTED(거절), ATTENDED(출석), ABSENT(불참)',
+                                       `status`     VARCHAR(20) NOT NULL DEFAULT 'PENDING'
+                                                    COMMENT '참여 상태: PENDING(신청), APPROVED(승인), REJECTED(거절), ATTENDED(출석), ABSENT(불참), BANNED(불가)', 
                                        `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '신청 시점',
                                        `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '상태 변경 시점',
                                        UNIQUE KEY uq_meeting_user (`meeting_id`, `user_id`),  -- 모임당 1인 1참여 보장
