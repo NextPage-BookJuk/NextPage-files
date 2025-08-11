@@ -1,10 +1,9 @@
-
 ```sql
 -- =================================================================
 --  1. 데이터베이스 생성 및 선택 (이 부분을 추가하세요!)
 -- =================================================================
-CREATE DATABASE IF NOT EXISTS `book_juk_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `book_juk_db`;
+CREATE DATABASE IF NOT EXISTS bookjuk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE bookjuk;
 
 -- =================================================================
 --  독서모임 서비스 DDL (리팩토링 ver. / 외래 키, 인덱스/제약조건 일부 추가)
