@@ -95,4 +95,11 @@ CREATE TABLE `comment` (
     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '작성일',
     `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='게시글의 댓글';
+
+-- 접근 권한 확인, 중복 방지용
+CREATE INDEX idx_user_email                 ON `user`(email);
+CREATE INDEX idx_meeting_host               ON `meeting`(host_id);
+CREATE INDEX idx_mp_meeting_user_status     ON `meeting_participant`(meeting_id, user_id, status);
+CREATE INDEX idx_post_meeting_created       ON `post`(meeting_id, created_at);
+CREATE INDEX idx_comment_post_created       ON `comment`(post_id, created_at);
 ```
