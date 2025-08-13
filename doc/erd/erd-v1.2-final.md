@@ -14,7 +14,7 @@ USE bookjuk;
 -- -----------------------------------------------------
 CREATE TABLE `user` (
     `user_id`        BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '유저 고유 식별자',
-    `nickname`       VARCHAR(50) NOT NULL COMMENT '닉네임 (중복 허용)',
+    `username`       VARCHAR(50) NOT NULL COMMENT '닉네임 (중복 허용)',
     `email`          VARCHAR(100) NOT NULL COMMENT '이메일 (로그인 ID)',
     `password`       VARCHAR(255) NOT NULL COMMENT '비밀번호 (해시화하여 저장)',
     `preferred_genre` VARCHAR(100) NULL COMMENT '선호 장르',
